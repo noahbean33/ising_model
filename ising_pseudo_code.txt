@@ -1,0 +1,73 @@
+program ising
+    ! Monte Carlo simulation of a 2D Ising model using the Metropolis algorithm
+    size = 10
+    ! Width of square lattice
+    T = 2.6
+    ! Temperature in units of c/k
+    initialize
+    for iteration = 1 to 100*size^2 do
+        ! Main iteration loop
+        i = int(randsize)+1
+        ! Choose a random row number
+        j = int(randsize)+1
+        ! and a random column number
+        deltaU = deltaU(i,j, Einit)
+        ! Compute ΔU of hypothetical flip
+        if Einit < 0 then
+            ! If flipping reduces the energy ...
+            Einit = Einit + deltaU
+            ! then flip it!
+        else
+            ! otherwise the Boltzmann factor gives the probability of flipping
+            if rand < exp(-Einit/T) then
+                Einit = Einit + deltaU
+                color(square(i,j))
+            end if
+        end if
+    ! next iteration
+    end
+
+subroutine deltaU(i,j, Einit)
+    ! Compute ΔU of flipping a dipole (note periodic boundary conditions)
+    if i = 1 then
+        top = s(size,j)
+    else
+        top = s(i-1,j)
+    end if
+    if i = size then
+        bottom = s(1,j)
+    else
+        bottom = s(i+1,j)
+    end if
+    if j = 1 then
+        left = s(i,size)
+    else
+        left = s(i,j-1)
+    end if
+    if j = size then
+        right = s(i,1)
+    else
+        right = s(i,j+1)
+    end if
+    deltaU = 2*s(i,j)*(top + bottom + left + right)
+end subroutine
+
+subroutine initialize
+    ! Initialize to a random array
+    for i = 1 to size
+        for j = 1 to size
+            if rand < 0.5 then
+                s(i,j) = 1
+            else
+                s(i,j) = -1
+            end if
+            color(square(i,j))
+        next j
+    next i
+end subroutine
+
+subroutine color(square(i,j))
+    ! Color a square according to the value (implementation depends on system)
+end subroutine
+
+!From "An Introduction To Thermal Physics" by Daniel Schroeder
