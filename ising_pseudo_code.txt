@@ -1,34 +1,39 @@
+!From "An Introduction To Thermal Physics" by Daniel Schroeder
 program ising
     ! Monte Carlo simulation of a 2D Ising model using the Metropolis algorithm
     size = 10
     ! Width of square lattice
-    T = 2.6
-    ! Temperature in units of c/k
+    T = 2.25
+    ! Temperature in units of J/k_B
     initialize
     for iteration = 1 to 100*size^2 do
         ! Main iteration loop
-        i = int(randsize)+1
+        i = random_integer(1,size)
         ! Choose a random row number
-        j = int(randsize)+1
-        ! and a random column number
-        deltaU = deltaU(i,j, Einit)
+        j = random_integer(1,size)
+        ! Choose a random column number
+        call deltaU(i,j,Ediff)
         ! Compute ΔU of hypothetical flip
-        if Einit < 0 then
-            ! If flipping reduces the energy ...
-            Einit = Einit + deltaU
-            ! then flip it!
+        if Ediff <= 0 then
+            ! If flipping reduces or maintains energy ...
+            s(i,j) = -s(i,j)
+            ! Flip the spin
+            colorsquare(i,j)
+            ! Update visualization
         else
-            ! otherwise the Boltzmann factor gives the probability of flipping
-            if rand < exp(-Einit/T) then
-                Einit = Einit + deltaU
-                color(square(i,j))
+            ! Otherwise, flip with Boltzmann probability
+            if rand < exp(-Ediff/T) then
+                s(i,j) = -s(i,j)
+                ! Flip the spin
+                colorsquare(i,j)
+                ! Update visualization
             end if
         end if
-    ! next iteration
-    end
+    next iteration
+end program
 
-subroutine deltaU(i,j, Einit)
-    ! Compute ΔU of flipping a dipole (note periodic boundary conditions)
+subroutine deltaU(i,j,Ediff)
+    ! Compute ΔU of flipping a spin (with periodic boundary conditions)
     if i = 1 then
         top = s(size,j)
     else
@@ -49,7 +54,7 @@ subroutine deltaU(i,j, Einit)
     else
         right = s(i,j+1)
     end if
-    deltaU = 2*s(i,j)*(top + bottom + left + right)
+    Ediff = 2*s(i,j)*(top+bottom+left+right)
 end subroutine
 
 subroutine initialize
@@ -61,13 +66,11 @@ subroutine initialize
             else
                 s(i,j) = -1
             end if
-            color(square(i,j))
+            colorsquare(i,j)
         next j
     next i
 end subroutine
 
-subroutine color(square(i,j))
-    ! Color a square according to the value (implementation depends on system)
+subroutine colorsquare(i,j)
+    ! Color a square according to s value (implementation depends on system)
 end subroutine
-
-!From "An Introduction To Thermal Physics" by Daniel Schroeder
