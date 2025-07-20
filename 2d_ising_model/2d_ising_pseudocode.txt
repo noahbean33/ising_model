@@ -1,0 +1,82 @@
+// Pseudocode for 2D Ising Model (C++-style structure)
+
+Include necessary headers: iostream, vector, random, cmath, fstream
+
+Define constants:
+    L = 50  // lattice size (L x L)
+    J = 1.0  // interaction strength
+    kB = 1.0  // Boltzmann constant
+    T = 2.5  // temperature
+    num_sweeps = 10000  // MC sweeps
+    equilibration_sweeps = 1000
+    measurement_interval = 10
+
+Initialize random number generators:
+    random_device rd
+    mt19937 gen(rd())
+    uniform_real_distribution dis(0.0, 1.0)
+    uniform_int_distribution rand_site(0, L-1)
+
+Declare lattice as 2D vector of ints (L x L)
+
+Function initialize_lattice():
+    for i from 0 to L-1:
+        for j from 0 to L-1:
+            lattice[i][j] = (dis(gen) < 0.5) ? 1 : -1
+
+Function compute_deltaE(i, j):
+    top = lattice[(i - 1 + L) % L][j]
+    bottom = lattice[(i + 1) % L][j]
+    left = lattice[i][(j - 1 + L) % L]
+    right = lattice[i][(j + 1) % L]
+    return 2.0 * J * lattice[i][j] * (top + bottom + left + right)
+
+Function metropolis_step():
+    i = rand_site(gen)
+    j = rand_site(gen)
+    deltaE = compute_deltaE(i, j)
+    if deltaE <= 0 or dis(gen) < exp(-deltaE / (kB * T)):
+        lattice[i][j] = -lattice[i][j]
+
+Function compute_energy():
+    energy = 0.0
+    for i from 0 to L-1:
+        for j from 0 to L-1:
+            right = lattice[i][(j + 1) % L]
+            bottom = lattice[(i + 1) % L][j]
+            energy -= J * lattice[i][j] * (right + bottom)
+    return energy
+
+Function compute_magnetization():
+    mag = 0.0
+    for i from 0 to L-1:
+        for j from 0 to L-1:
+            mag += lattice[i][j]
+    return mag / (L * L)
+
+Function run_simulation(output_file):
+    initialize_lattice()
+    open output stream out to output_file
+    write header: "sweep,energy,magnetization"
+
+    // Equilibration
+    for sweep from 0 to equilibration_sweeps-1:
+        for attempt from 0 to L*L-1:
+            metropolis_step()
+
+    // Production
+    for sweep from 0 to num_sweeps-1:
+        for attempt from 0 to L*L-1:
+            metropolis_step()
+        if sweep % measurement_interval == 0:
+            E = compute_energy()
+            M = compute_magnetization()
+            write to out: sweep, E, M
+
+    close out
+
+Main function:
+    run_simulation("ising_2d_data.csv")
+    print "Simulation complete. Data saved to ising_2d_data.csv"
+
+

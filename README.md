@@ -1,4 +1,25 @@
-# 2D Ising Model Simulation
+# Ising Model Simulation and Analysis
+
+This project simulates the 2D and 3D Ising models and provides tools for analyzing the simulation data.
+
+## Project Structure
+
+The project is organized into three main directories:
+
+- `2d_ising_model/`: Contains the C++ source code for the 2D Ising model simulation.
+  - `ising_2d.cpp`: Main source file for the 2D simulation.
+  - `ising_2d.h`: Header file for the 2D simulation.
+  - `2d_ising_pseudocode.txt`: Pseudocode for the 2D model implementation.
+
+- `3d_ising_model/`: Contains the C++ source code for the 3D Ising model simulation.
+  - `ising_3d.cpp`: Main source file for the 3D simulation.
+  - `ising_3d.h`: Header file for the 3D simulation.
+  - `3d_ising_pseudocode.txt`: Pseudocode for the 3D model implementation.
+
+- `analysis/`: Contains Python scripts for data analysis and visualization.
+  - `data_analysis.py`: Script for analyzing the output data from the simulations.
+  - `visualization.py`: Script for visualizing the simulation results.
+  - `visualization_pseudocode.txt`: Pseudocode for the visualization implementation.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
