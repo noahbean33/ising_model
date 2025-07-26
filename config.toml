@@ -1,0 +1,31 @@
+# Configuration for the Ising Model Simulation
+
+[simulation_common]
+# Number of sweeps to discard for equilibration
+equilibration_sweeps = 1000
+# Number of sweeps to run for measurement
+measurement_sweeps = 5000
+
+[model_1d]
+# Length of the 1D lattice
+L = 256
+# Temperature of the system
+T = 1.5
+# Coupling constant
+J = 1.0
+
+[model_2d]
+# Dimension of the 2D lattice (L x L)
+L = 64
+# Temperature of the system
+T = 2.269  # Critical temperature for 2D Ising model
+# Coupling constant
+J = 1.0
+
+[model_3d]
+# Dimension of the 3D lattice (L x L x L)
+L = 16
+# Temperature of the system
+T = 4.5
+# Coupling constant
+J = 1.0

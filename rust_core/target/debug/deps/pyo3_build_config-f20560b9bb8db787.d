@@ -1,0 +1,14 @@
+C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\deps\libpyo3_build_config-f20560b9bb8db787.rmeta: C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\lib.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\errors.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\impl_.rs C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config-file.txt C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config.txt
+
+C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\deps\libpyo3_build_config-f20560b9bb8db787.rlib: C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\lib.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\errors.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\impl_.rs C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config-file.txt C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config.txt
+
+C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\deps\pyo3_build_config-f20560b9bb8db787.d: C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\lib.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\errors.rs C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\impl_.rs C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config-file.txt C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config.txt
+
+C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\lib.rs:
+C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\errors.rs:
+C:\Users\marin\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\pyo3-build-config-0.21.2\src\impl_.rs:
+C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config-file.txt:
+C:\Users\marin\Documents\GitHub\ising_model\rust_core\target\debug\build\pyo3-build-config-7a8287f110c1ce3a\out/pyo3-build-config.txt:
+
+# env-dep:CARGO_PKG_VERSION=0.21.2
+# env-dep:OUT_DIR=C:\\Users\\marin\\Documents\\GitHub\\ising_model\\rust_core\\target\\debug\\build\\pyo3-build-config-7a8287f110c1ce3a\\out
